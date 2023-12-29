@@ -1,95 +1,40 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Cell from "./_components/Cell";
+import Cube from "./_components/Cube";
+import Row from "./_components/Row";
+import { rows } from "./_components/data";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <div className="container">
+        <div className="row row-header">
+          <h1>Variations of Incomplete Open Cubes</h1>
+        </div>
+        <div id="grid">
+          {rows.map((row, index) => {
+            return (
+              <Row key={index}>
+                {row.map((cell, index) => {
+                  return (
+                    <Cell key={index}>
+                      {cell ? <Cube cube={cell} /> : null}
+                    </Cell>
+                  );
+                })}
+              </Row>
+            );
+          })}
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="container description">
+        <p>SOL LEWITT</p>
+        <p>WALL DRAWINGS &amp; STRUCTURES</p>
+        <p>THE LOCATION OF SIX GEOMETRIC FIGURES:</p>
+        <p>VARIATIONS OF INCOMPLETE OPEN CUBES</p>
+        <p>THE JOHN WEBER GALLERY</p>
+        <p>420 W. BROADWAY NEW YORK</p>
+        <p>OCTOBER 26 - NOVEMBER 20, 1974</p>
       </div>
     </main>
-  )
+  );
 }
